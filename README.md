@@ -60,8 +60,8 @@ bash
 
 # 1. Clone the repository
 ```
-git clone <your-repo-url>
-cd secure-file-sharing
+git clone https://github.com/jagantripuragiri/secure_file_sharing.git
+cd secure_file_sharing
 ```
 
 # 2. Create and activate virtual environment
@@ -96,3 +96,76 @@ python3
 ```
 python3 main.py
 ```
+```
+The server will run at: http://127.0.0.1:5000
+```
+
+# 📮 API Usage (Postman)
+ ## 🔑 1. Login (Ops)
+
+```POST /ops/login
+Body (JSON):
+
+{
+  "email": "ops@example.com",
+  "password": "admin123"
+}
+```
+Returns a JWT access_token.
+
+## 📤 2. Upload File
+```
+POST /ops/upload
+Headers:
+
+Authorization: Bearer <access_token>
+
+Body (form-data):
+
+file: (choose a .pptx, .docx, or .xlsx)
+
+```
+
+Returns:
+```
+{
+  "msg": "File uploaded successfully",
+  "download_link": "http://127.0.0.1:5000/download/filename.pptx"
+}
+```
+# ✅ Valid File Types
+Only the following are allowed:
+```
+.pptx
+
+.docx
+
+.xlsx
+```
+# 👤 Default User (for testing)
+You can add a test user like this via shell:
+```
+from app import db
+from app.models import User
+from werkzeug.security import generate_password_hash
+
+user = User(email="ops@example.com", password=generate_password_hash("admin123"), role="ops")
+db.session.add(user)
+db.session.commit()
+```
+
+# 📌 Notes
+
+```
+
+Make sure to pass subject as a string field in form-data.
+
+Uploaded files are stored in the uploads/ directory.
+
+This is a local setup. If deploying, consider using S3, PostgreSQL, HTTPS, etc.
+```
+
+# 📧 Contact
+For any issues, contact: tripuragirijagan27@example.com
+
+
