@@ -48,7 +48,10 @@ This project implements a secure file-sharing backend system using **Python**, *
 ├── requirements.txt
 └── README.md
 
-🚀 Environment Setup Instructions
+---
+
+## 🚀 Environment Setup Instructions
+
 📁 Backend Setup (Flask)
 bash
 Copy
