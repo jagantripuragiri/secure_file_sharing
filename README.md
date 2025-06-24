@@ -35,80 +35,64 @@ This project implements a secure file-sharing backend system using **Python**, *
 ## 📂 Folder Structure
 
 ```bash
-.
+secure_file_sharing/
 ├── app/
 │   ├── __init__.py
 │   ├── models.py
 │   ├── routes/
 │   │   ├── ops_routes.py
 │   │   └── client_routes.py
-├── uploads/
-│   └── # Uploaded files stored here
+│   └── utils/
+│       ├── encryption.py
+│       └── mailer.py
+├── uploads/               # Uploaded files stored here
 ├── main.py
 ├── requirements.txt
 └── README.md
 
+```
 ---
 
 ## 🚀 Environment Setup Instructions
 
 📁 Backend Setup (Flask)
 bash
-Copy
-Edit
+
 # 1. Clone the repository
+```
 git clone <your-repo-url>
 cd secure-file-sharing
+```
 
 # 2. Create and activate virtual environment
+```
 python3 -m venv venv
 source venv/bin/activate  # For Windows use: venv\Scripts\activate
+```
 
 # 3. Install dependencies
+```
 pip install -r requirements.txt
+```
 
 # 4. Set environment variables (if needed)
+```
 export FLASK_APP=main.py
 export FLASK_ENV=development
 # On Windows use: set FLASK_APP=main.py
+```
 
 # 5. Create database and folders
+```
 python3
 >>> from app import create_app, db
 >>> app = create_app()
 >>> app.app_context().push()
 >>> db.create_all()
 >>> exit()
+```
 
 # 6. Run the application
+```
 python3 main.py
-📦 Required File Structure
-markdown
-Copy
-Edit
-secure-file-sharing/
-├── app/
-│   ├── __init__.py
-│   ├── models.py
-│   ├── routes/
-│   │   ├── __init__.py
-│   │   ├── ops_routes.py
-│   │   └── client_routes.py
-│   └── utils/
-│       ├── encryption.py
-│       └── mailer.py
-├── uploads/               # Will be auto-created
-├── requirements.txt
-├── main.py
-└── README.md
-📥 Sample requirements.txt
-txt
-Copy
-Edit
-Flask
-flask_sqlalchemy
-flask_jwt_extended
-flask_bcrypt
-flask_cors
-python-dotenv
-itsdangerous
+```
